@@ -1,0 +1,5 @@
+matrix:
+  homeserver_url: "https://"
+  matrix_id: "@user:fqdn"
+  password: 'pass'
+  room_id: 'room id'

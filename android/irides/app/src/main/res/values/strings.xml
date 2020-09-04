@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">irides</string>
+    <string name="scanned_value">Scanned Value:</string>
+    <string name="please_scan_first">Enter password and gen key or load key</string>
+    <string name="scan">Scan</string>
+    <string name="pwd">Password</string>
+    <string name="genkey">Gen Key</string>
+    <string name="ldkey">Load Key</string>
+</resources>
