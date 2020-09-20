@@ -1,5 +1,7 @@
 <?php
 
+if (!$authenticated) exit('poof!');
+
 
 $schedule['2020-01-01']=HOLIDAY;
 $schedule['2020-01-20']=HOLIDAY;

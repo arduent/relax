@@ -1,0 +1,83 @@
+<p><strong>Tracking Human Resource Assets on the Stellar Blockchain</strong></p>
+
+<p>relax.finance uses the Stellar blockchain to track Human Resource assets in the organization. Examples of assets: Vacation days, sick days, health pay, performance bonuses, salary. Assets can be transferred when signed by designated keys.</p>
+
+<p>The key components of relax.finance are a web interface running in Electron, an Android transaction signing tool, and an Escrow Manager in Qt.</p>
+
+<p><img src="/relax-beach.png" alt="vacation beach" style="width:400px;height:auto;max-width:100%;"></p>
+
+<p>I use relax.finance to track vacation and health assets for employees located at a factory in Mexico, and a runner training camp in Kenya. The company headquarters are located in Mountain View, California.</p>
+
+<p>Please read the <strong>Security Walkthrough</strong> in the documentation.</p>
+
+<p>Employees are managed in on a Microsoft Active Directory Controller. Stellar keys are generated and assigned to each employee and stored in Active Directory (LDAP). relax.finace is interchangeable with OpenLDAP, if you use this software in your organization.</p>
+
+<p>The Escrow manager is a Qt application that stores Stellar keys in KWallet (private keys encrypted using AES). The Escrow manager service should run on admin's computer as a local service to avoid exposing sensitive data on a public facing server. The Escrow manager software was developed on a FreeBSD system, however it should run on Linux, MacOS, and MS Windows with little modification.</p>
+
+<p>This project is valuable to Stellar because it is useful to business organizations, especially organizations that track assets for employees which are located in multiple countries. This will increase the user base of the Stellar blockchain.</p>
+
+<p>The client interface (FreeBSD, Linux, MacOS, or MS Windows) for HR is a calendar, with a real-time multiuser chat. When HR creates a transaction, the matrix barcode ("qr code") will appear in the chat window, which is scanned to sign with their mobile device.</p>
+
+<p>The Android mobile app allows you to generate and store Stellar keys. The keys are encrypted on the device and saved in user specified files, and many keys can be stored on the device as necessary.</p>
+
+<p>When the transaction matrix code is scanned the application uses the loaded Sellar private key to sign the transaction.</p>
+
+<p>Transactions may be signed in batches, for example 15 employees receiving VACATION asset can be signed once instead of 15 signatures. Multiple HR managers may sign Asset transactions submitted to Stellar blockchain.</p>
+
+<p>An escrow account will be used for future asset transfers. Example: employee start date 9/1/20, on one year anniversary they receive 5 days of vacation. On 9/1/20 we transfer 5 VACATION assets to escrow account with a maturity date of 9/1/21. On maturity date, VACATION assets are transferred to employee account. They may also be reverted as necessary.</p>
+
+<p>The Stellar account designated for escrow will keep track of items in data fields of account. One datafield will keep track of last index number, then each escrow transaction will use three datafields:</p>
+
+<ul>
+<li>kn_sd: source and destination account, each 32 bytes combined into one field</li>
+<li>kn_amt: amount and asset type seperated by space char</li>
+<li>kn_due: timestamp of maturity date, relative to epoch</li>
+</ul>
+
+<p>Other assets tracked on the Stellar blockchain could include medical reimbursements made to employee, employee loans, performance bonuses.</p>
+
+<p><img src="/health-asset.png" alt="HR assets" style="width:400px;height:auto;max-width:100%;"></p>
+
+
+<p>Salaries can also be tracked using assets on the Stellar blockchain. For example a cost of living asset to scale salary to minimum wage: three times the average monthly price of one bedroom apartment in area times 13 months. (Four months have five weeks). So, if apartment price in area is 1,000 in the local currency, the &quot;minimum wage&quot; cost of living is 39,000 per year. A 50,000 salary is 1.28 LIVING asset.</p>
+
+<p>Github: <a href="https://github.com/arduent/relax">https://github.com/arduent/relax</a></p>
+
+<p><strong>Video Presentation</strong></p>
+<iframe width="640" height="360" style="max-width:100%;" src="https://www.youtube.com/embed/RDpvKYfljbU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p><strong>About the Author</strong></p>
+<p>Waitman Gobble is a software developer, author and photographer who has worked in manufacturing since 1988. He is active in the FreeBSD community. He was born and raised in Ohio, and moved to California in the 1990's to work a technical teaching job. He started his first business in the late 1990's. He has developed software for companies such as Boeing, Nikon, Toyota and TriStar pictures. He is presently located in Dominican Republic raising his 2 year old daughter.</p>
+<p><strong>Need Help?</strong></p>
+<p><strong>Contact:</strong><br>
+WhatsApp: +1-829-914-3703<br>
+Voice: +1-307-217-5609<br>
+Skype: waitman.gobble<br>
+Google: gobble.wa@gmail.com<br>
+Email: <a href="mailto:waitman@waitman.net">waitman@waitman.net</a><br>
+Matrix/Element Chat: <a href="https://wubyo.cc/">Wubyo (relax room)</a> or Jitsi Video Conference: <a href="https://wubyo.one/">Wubyo</a><br>
+Web Site: <a href="https://waitman.net/">waitman.net</a>
+</p>
+<p>
+<img src="/wagoj.jpg" alt="Waitman and Jazmine" style="width:150px;height:auto; border-radius:10px;">
+</p>
+
+<div style="background-color:#3CB371;padding:10px;border-radius:5px;max-width:94%;width:400px;">
+<p><strong>Send me XLM</strong><br>
+<input id="addr" type="text" style="width:300px;max-width:100%;padding:5px;border:1px solid #ccc;" value="GAHYFYRULIWVZ5PRBMMIKRLZJWWAJ3P56XULTHNRZRLCVI4IPDSMZZBP" onclick="doc()">
+<br>
+<small><a href="javascript:void(0);" onclick="doc();">Copy account id to clipboard</a></small><br>
+<small><a href="https://accountviewer.stellar.org/">Access Your Stellar Account</a></small>
+</p>
+</div>
+
+
+<script>
+function doc() {
+var copyText = document.getElementById("addr");
+copyText.select();
+copyText.setSelectionRange(0, 99999);
+document.execCommand("copy");
+} 
+</script>
+
